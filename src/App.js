@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Carousel from './components/Carousel'
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
   return (
     <>
       <Navbar theme={theme} setTheme={setTheme} />

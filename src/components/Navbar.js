@@ -24,7 +24,8 @@ export default function Navbar(props) {
   console.log(color_theme);
 
   const changeTheme = (event) => {
-    const theme = event.target.className.substr(7);
+    const theme = event.target.className.substr(23);
+    console.log(theme);
     props.setTheme(theme);
     console.log(textColor);
     setTextColor(color_theme[props.theme].text);
