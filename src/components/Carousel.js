@@ -8,17 +8,33 @@ const items = [
   {
     src: CarouselImage1,
     altText: "Image 1",
-    caption: "Image 1"
+    caption: <>
+      <h1>LITERACY MISSION NIT</h1>
+      <p>
+        <span style={{display:"block"}}> is working towards its mission of providing maximum possible support to those who struggle even for the basic amenities of life.</span>
+        <span style={{display:"block"}}>We aim to impart them the quality education and hence, enable them to stand firm in this competitive world.</span>
+      </p>
+    </>
   },
   {
     src: CarouselImage2,
     altText: "Image 2",
-    caption: "Image 2"
+    caption: <>
+      <h1>HERE IN AND AROUND NITH</h1>
+      <p>there are many children who are in need of education, but can't get it owing to lack of resources. They are those who can do much more in life but are restricted because their parents don't have enough money to support them. Literacy Mission is working hard to change that.</p>
+    </>
   },
   {
     src: CarouselImage3,
     altText: "Alt Text",
-    caption: "Text"
+    caption: <>
+        <h1>WE THINK THAT</h1>
+      <p>
+        <span style={{display:"block"}}>Let Us Give Them What They Need,</span>
+        <span style={{display:"block"}}>And Make Them Achieve What They Can,</span>
+        <span style={{display:"block"}}>But Not Leave Them What They Are.</span>
+      </p>
+    </>
   }
 ];
 
@@ -52,7 +68,7 @@ const ImageCarousel = () => {
       >
         <img src={item.src} alt={item.altText} style={{width:"100vw", height:"80vh"}} />
         <div className="carousel-caption d-none d-md-block">
-          <h3>{item.caption}</h3>
+          {item.caption}
         </div>
       </CarouselItem>
     );
