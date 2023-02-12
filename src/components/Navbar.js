@@ -50,7 +50,7 @@ export default function Navbar(props) {
               return <NavbarItem key={index} item={item} theme={props.theme} color_theme={color_theme} textColor={textColor}/>
             })}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className={`nav-link dropdown-toggle text-${props.theme}`} href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 More
               </a>
               <ul className={`dropdown-menu bg-${props.theme}`}>
