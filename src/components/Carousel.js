@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators } from "reactstrap";
+import CarouselImage1 from '../assets/images/carousel1.png'
+import CarouselImage2 from '../assets/images/carousel2.JPG'
+import CarouselImage3 from '../assets/images/carousel3.JPG'
 
 const items = [
   {
-    src: "https://via.placeholder.com/800x400/000000/ffffff?text=Image+1",
+    src: CarouselImage1,
     altText: "Image 1",
     caption: "Image 1"
   },
   {
-    src: "https://via.placeholder.com/800x400/000000/ffffff?text=Image+2",
+    src: CarouselImage2,
     altText: "Image 2",
     caption: "Image 2"
   },
   {
-    src: "https://via.placeholder.com/800x400/000000/ffffff?text=Image+3",
+    src: CarouselImage3,
     altText: "Alt Text",
     caption: "Text"
   }
@@ -47,7 +50,7 @@ const ImageCarousel = () => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+        <img src={item.src} alt={item.altText} style={{width:"100vw", height:"70vh"}} />
         <div className="carousel-caption d-none d-md-block">
           <h3>{item.caption}</h3>
         </div>

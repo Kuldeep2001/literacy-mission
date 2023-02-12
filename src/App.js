@@ -6,10 +6,12 @@ import Carousel from './components/Carousel'
 function App() {
   const [theme,setTheme] = useState('light')
   return (
+    <>
     <div className="container-fluid">
       <Navbar theme={theme} setTheme={setTheme}/>
       <Carousel />
     </div>
+    </>
   );
 }
 
