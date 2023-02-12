@@ -50,7 +50,7 @@ const ImageCarousel = () => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} style={{width:"100vw", height:"70vh"}} />
+        <img src={item.src} alt={item.altText} style={{width:"100vw", height:"80vh"}} />
         <div className="carousel-caption d-none d-md-block">
           <h3>{item.caption}</h3>
         </div>
