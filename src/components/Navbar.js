@@ -12,31 +12,11 @@ export default function Navbar(props) {
     {link:"/", data:"Make a Donation"},
   ]
 
-  let color_theme = {
-    primary:{text:'dark',hover:'dark'},
-    dark:{text:'light',hover:'light'},
-    warning:{text:'dark',hover:'secondary'},
-    light:{text:'dark',hover:'dark'},
-    info:{text:'success',hover:'success'},
-    secondary:{text:'primary',hover:'primary'},
-    success:{text:'info',hover:'info'},
-  }
-  console.log(color_theme);
-
-  const changeTheme = (event) => {
-    const theme = event.target.className.substr(23);
-    console.log(theme);
-    props.setTheme(theme);
-    console.log(textColor);
-    setTextColor(color_theme[props.theme].text);
-
-  };
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-  const [textColor, setTextColor] = useState(color_theme[props.theme].text);
   return (
-    <nav className={`navbar bg-${props.theme} header-nav fixed-top bg-gradient navbar-expand-lg`}>
+    <nav className={`navbar bg-dark navbar-dark fixed-top bg-gradient navbar-expand-md`}>
       <div className="container-fluid">
         <a className="nav-brand" href="/">
           <img src={Literacy_logo} alt="Bootstrap" height="100" />
@@ -44,32 +24,32 @@ export default function Navbar(props) {
         <button className="navbar-toggler" type="button"  onClick={toggle}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={`collapse navbar-collapse justify-content-between ${isOpen ? 'show' : ''}`}>
+        <div className={`collapse navbar-collapse justify-content-between ${isOpen ? 'show' : ''}`} id="navbarResponsive">
           <ul className="navbar-nav m-auto fs-4">
             {nav_links.map((item,index)=>{
-              return <NavbarItem key={index} item={item} theme={props.theme} color_theme={color_theme} textColor={textColor}/>
+              return <NavbarItem key={index} item={item} />
             })}
             <li className="nav-item dropdown">
-              <a className={`nav-link dropdown-toggle text-${props.theme}`} href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className="nav-link dropdown-toggle text-light" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 More
               </a>
-              <ul className={`dropdown-menu bg-${props.theme}`}>
-                <li><a className="dropdown-item" href="/">NIT Hamirpur</a></li>
-                <li><a className="dropdown-item" href="/">Helping Hands</a></li>
+              <ul className="dropdown-menu bg-dark">
+                {["NIT Hamirpur","Helping Hands", "Sponsors", "In Media", "Volunteers", "Support"].map((item,index)=>{
+                  return <li key={index}>
+                          <a className="dropdown-item text-light"
+                          onMouseEnter={()=>{console.log("Mouse Entered");}}
+    onMouseLeave={()=>{console.log(props.theme); }}
+                          href="/">{item}</a>
+                        </li>
+                })}
+                
+                {/* <li><a className="dropdown-item" href="/">Helping Hands</a></li>
                 <li><a className="dropdown-item" href="/">Sponsors</a></li>
                 <li><a className="dropdown-item" href="/">In Media</a></li>
                 <li><a className="dropdown-item" href="/">Volunteers</a></li>
-                <li><a className="dropdown-item" href="/">Support</a></li>
+                <li><a className="dropdown-item" href="/">Support</a></li> */}
               </ul>
             </li>
-          </ul>
-          <ul className="navbar-nav flex-row">
-            {Object.keys(color_theme).map((key,value)=>{
-              if(key !== props.theme)
-                return <div className={`m-auto nav-item p-2 bg-${key}`} onClick={changeTheme} key={value} style={{borderRadius: '50%', width: '2rem', height: '2rem'}}></div>
-              else
-                return null
-            })}
           </ul>
         </div>
       </div>
